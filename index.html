@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 
   <head>
@@ -38,13 +39,13 @@
              <div id="sidebar"> 
              <form>
                 <div>
-                    <div id="section" class="label">
+                    <div id="section" class="label" onclick="switchDisplay(0)">
                     <p>HTML</p>
                     </div>
                     <div class="elements">
                         <ul>
-                           <li><a href="#">sub1-1</a></li>
-                           <li><a href="#">sub1-2</a></li>
+                           <li><a href="index2.html" target=abc>animation-Duration</a></li>
+                           <li><a href="index3.html" target=abc>animation-n</a></li>
                            <li><a href="#">sub1-3</a></li>
                            <li><a href="#">sub1-4</a></li>
                            <li><a href="#">sub1-5</a></li>
@@ -53,7 +54,7 @@
                 </div>
      
                 <div>
-                    <div id="section" class="label">
+                    <div id="section" class="label" onclick="switchDisplay(1)">
                     <p>CSS</p>
                     </div>
                     <div class="elements">
@@ -65,7 +66,7 @@
                 </div>
      
                <div>
-                   <div id="section" class="label">
+                   <div id="section" class="label" onclick="switchDisplay(2)">
                    <p>JavaScript</p>
                    </div>
                    <div class="elements">
@@ -80,6 +81,8 @@
            </div>
                   
              <div id="content"> 
+             <iframe src="http://www.w3schools.com" name=abc height="700" width="700" frameborder="0">
+
              <!-- root container: container that includes sub-containers -->
         <div id="rootContainer" class="container" style="display:block">
 
@@ -172,34 +175,48 @@
 
             </div>    <!-- end of resultContainer -->
 
-        </div>      <!-- end of rootContainer -->
+        </div>  
+        </iframe>
+        <!-- end of rootContainer -->
         </div>
+        
         </div>
+        
     </div>
+     <!-- footter of this page -->
+    <footer></footer>
     
-    <script type="text/javascript">
+  
+
+<script type="text/javascript"> 
 /*=========================================script부분===============================*/
-var elements = document.getElementsByTagName("div");
+setup()
 /* 모든 영역 접기*/
-for (var i = 0; i < elements.length; i++) {
-  if (elements[i].className == "elements") {
-    elements[i].style.display="none";
-  } else if (elements[i].className == "label") {
-    elements[i].onclick=switchDisplay;
-  }
-}
+var x = document.getElementsByClassName("elements");
+    for(i=0; i<3; i++){
+    x[i].style.display="none";
+    }
 /* 상태에 따라 접거나 펼치기*/
-function switchDisplay() {
-  var parent = this.parentNode;
-  var target = parent.getElementsByTagName("div")[1];
-  if (target.style.display == "none") {
-    target.style.display="block";
-  } else {
-    target.style.display="none";
+function switchDisplay(k) {
+  var x = document.getElementsByClassName("elements");
+  
+  if(x[k].style.display=="none"){
+    x[k].style.display="block";
+    for(i=0; i<3; i++){
+      if(i==k){
+        continue ;
+      }
+      else{
+        x[i].style.display="none";
+      }
+    }
   }
-  return false;
+  else{
+    x[k].style.display="none";
+  }
 }
 </script>
   </body>
 
 </html>
+ 
